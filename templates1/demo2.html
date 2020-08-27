@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<title>Movie Recommender</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/demo.css') }}">
+<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/FD126C42-EBFA-4E12-B309-BB3FDD723AC1/main.js?attr=3s4S0EOkYxLDPQWwHXNnf_P_f56mi5QVtDOjLthLFPtts3j5L781DLvLNfEt4c7kDyD9ZOdzIYT7qI0CWvXjXmTzxpSr6hZ-UfUZck7AnWA" charset="UTF-8"></script><style>
+body {font-family: "Lato", sans-serif}
+.mySlides {display: none}
+</style>
+<body>
+
+<div class="w3-top">
+  <div class="w3-bar w3-black w3-card">
+    <a class="w3-bar-item w3-button w3-padding-large w3-hide-medium w3-hide-large w3-right" href="javascript:void(0)" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
+    <a href="#" class="w3-bar-item w3-button w3-padding-large">HOME</a>
+    <a href="#moods" class="w3-bar-item w3-button w3-padding-large w3-hide-small">MOODS</a>
+	<div class="w3-dropdown-hover w3-hide-small">
+      <button class="w3-padding-large w3-button" title="More">MOVIES<i class="fa fa-caret-down"></i></button>     
+      <div class="w3-dropdown-content w3-bar-block w3-card-4">
+        <a href="#drama" class="w3-bar-item w3-button">Drama</a>
+        <a href="#romance" class="w3-bar-item w3-button">Romance</a>
+        <a href="#comedy" class="w3-bar-item w3-button">Comedy</a>
+		<a href="#adventure" class="w3-bar-item w3-button">Adventure</a>
+		<a href="#thriller" class="w3-bar-item w3-button">Thriller</a>
+		<a href="#family" class="w3-bar-item w3-button">Family</a>
+		<a href="#animated" class="w3-bar-item w3-button">Animated</a>
+		<a href="#crime" class="w3-bar-item w3-button">Crime</a>
+      </div>
+	  </div>
+	<a href="#try" class="w3-bar-item w3-button w3-padding-large w3-hide-small">RECOMMEND</a>
+    <a href="#contact" class="w3-bar-item w3-button w3-padding-large w3-hide-small">CONTACT</a>
+    
+    </div>
+    <a href="javascript:void(0)" class="w3-padding-large w3-hover-red w3-hide-small w3-right"><i class="fa fa-search"></i></a>
+  </div>
+</div>
+
+<div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+  <div class="mySlides w3-display-container w3-center">
+    <img src="{{url_for('static', filename='blackpanther.jpg')}}" style="width:100%" />
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Black Panther</h3>
+      <p><b>Best superhero movie of 2018</b></p>   
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="{{url_for('static', filename='ss2.jpg')}}" style="width:100%" />
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Harry Potter and the Deathly Hallows 2</h3>
+      <p><b>Epic conclusion to the series</b></p>    
+    </div>
+  </div>
+  <div class="mySlides w3-display-container w3-center">
+    <img src="{{url_for('static', filename='ss3.jpg')}}" style="width:100%" />
+    <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+      <h3>Star Wars: Rise of Skywalker</h3>
+      <p><b>The Skywalker series comes to an end</b></p>    
+    </div>
+  </div>
+  </div>
+
+  <div class="w3-container w3-content w3-center w3-padding-64" style="max-width:800px" id="moods">
+    <h2 class="w3-wide">THE MOOD BASED MOVIE RECOMMENDER </h2>
+    <p class="w3-opacity"><i>Find a perfect movie to watch</i></p>
+    <p class="w3-justify">The fast growth of social networks and the technological evolution form a new generation of
+media consumers. Nowadays it is easy to access the multimedia content from the shared
+repository or from private. Today, millennials find themselves surrounded by various causes
+of stress and anxiety. According to studies, India is the sixth most depressed country in the
+world.</p>
+<p class="w3-justify">With people often turning to movies for relaxation and to take their mind of off worries in
+their lives, necessary steps need to be taken to help recommend suitable movies to combat
+their stress-ridden daily routines.</p>
+<p class="w3-justify">A movie recommendation system based on facial emotions
+comes in handy to tackle such occasions to deal with the unpredictability of a person’s
+thoughts.</p> 
+<p class="w3-justify">Some moods analysed by our system: </p>
+    <div class="w3-row w3-padding-16">
+      <div class="w3-third">
+        <p style="font-weight:bold;">Happiness</p>
+        <img src="{{url_for('static', filename='happy.png')}}" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%" />
+        </div>
+      <div class="w3-third">
+        <p style="font-weight:bold;">Sadness</p>
+          <img src="{{url_for('static', filename='sad.png')}}" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%" />
+        
+      </div>
+      <div class="w3-third">
+        <p style="font-weight:bold;">Fear</p>
+        <img src="{{url_for('static', filename='fear.png')}}" class="w3-round w3-margin-bottom" alt="Random Name" style="width:60%" />
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-black" id="movies">
+    <div class="w3-container w3-content " style="max-width:800px">
+      <h2 class="w3-wide w3-center">MOVIES</h2>
+      <p class="w3-opacity w3-center"><i>What do you feel like watching?</i></p><br>
+
+    </div>
+		  <div id="drama" style="padding-top:30px">
+		<h4>Drama</h4>
+			<div class="inlinee"> 
+				<a href="https://www.youtube.com/watch?v=-qnyd7Ht9uc" target=_blank><img src="{{url_for('static', filename='drama.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=JDjTJ6lkb-8" target=_blank><img src="{{url_for('static', filename='drama2.jpg')}}"alt="drama1" height=200px width=333px></a>
+				
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=7Etow6UqD_A" target=_blank><img src="{{url_for('static', filename='drama3.jpg')}}"alt="drama1" height=200px width=333px></a>
+				
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=kbMqWXnpXcA" target=_blank><img src="{{url_for('static', filename='drama4.jpg')}}"alt="drama1" height=200px width=333px></a>
+				
+			</div>
+			
+	  </div>
+	  <div id="romance">
+		<h4>Romance</h4>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=-qnyd7Ht9uc" target=_blank><img src="{{url_for('static', filename='ro1.jpeg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=JDjTJ6lkb-8" target=_blank><img src="{{url_for('static', filename='ro2.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=7Etow6UqD_A" target=_blank><img src="{{url_for('static', filename='ro3.png')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=kbMqWXnpXcA" target=_blank><img src="{{url_for('static', filename='ro4.webp')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			
+	  </div>
+  </div>
+	  <div id="comedy"style="padding-top:30px">
+		<h4>Comedy</h4>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=-qnyd7Ht9uc" target=_blank><img src="{{url_for('static', filename='co1.jpeg')}}"alt="drama1" height=200px width=333px></a>
+				
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=JDjTJ6lkb-8" target=_blank><img src="{{url_for('static', filename='co2.jpg')}}"alt="drama1" height=200px width=333px></a>
+				
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=7Etow6UqD_A" target=_blank><img src="{{url_for('static', filename='co3.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=kbMqWXnpXcA" target=_blank><img src="{{url_for('static', filename='co4.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			
+	  </div>
+	  <div id="adventure"style="padding-top:30px">
+		<h4>Adventure</h4>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=-qnyd7Ht9uc" target=_blank><img src="{{url_for('static', filename='a1.jpg')}}"alt="drama1" height=200px width=333px></a>
+				
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=JDjTJ6lkb-8" target=_blank><img src="{{url_for('static', filename='a2.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=7Etow6UqD_A" target=_blank><img src="{{url_for('static', filename='a3.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=kbMqWXnpXcA" target=_blank><img src="{{url_for('static', filename='a4.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			
+	  </div>
+	  <div id="thriller"style="padding-top:30px">
+		<h4>Thriller</h4>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=-qnyd7Ht9uc" target=_blank><img src="{{url_for('static', filename='t1.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=JDjTJ6lkb-8" target=_blank><img src="{{url_for('static', filename='t2.jpg')}}"alt="drama1" height=200px width=333px></a>
+				
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=7Etow6UqD_A" target=_blank><img src="{{url_for('static', filename='t3.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=kbMqWXnpXcA" target=_blank><img src="{{url_for('static', filename='t4.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			
+	  </div>
+	  <div id="family"style="padding-top:30px">
+		<h4>Family</h4>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=-qnyd7Ht9uc" target=_blank><img src="{{url_for('static', filename='f1.jpeg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=JDjTJ6lkb-8" target=_blank><img src="{{url_for('static', filename='f2.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=7Etow6UqD_A" target=_blank><img src="{{url_for('static', filename='f3.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=kbMqWXnpXcA" target=_blank><img src="{{url_for('static', filename='f4.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			
+	  </div>
+	  	  <div id="animated"style="padding-top:30px">
+		<h4>Animated</h4>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=-qnyd7Ht9uc" target=_blank><img src="{{url_for('static', filename='b1.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=JDjTJ6lkb-8" target=_blank><img src="{{url_for('static', filename='b2.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=7Etow6UqD_A" target=_blank><img src="{{url_for('static', filename='b3.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=kbMqWXnpXcA" target=_blank><img src="{{url_for('static', filename='b4.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			
+	  </div>
+	   <div id="Crime"style="padding-top:30px">
+		<h4>Crime</h4>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=-qnyd7Ht9uc" target=_blank><img src="{{url_for('static', filename='c1.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=JDjTJ6lkb-8" target=_blank><img src="{{url_for('static', filename='c2.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=7Etow6UqD_A" target=_blank><img src="{{url_for('static', filename='c3.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			<div class="inlinee">
+				<a href="https://www.youtube.com/watch?v=kbMqWXnpXcA" target=_blank><img src="{{url_for('static', filename='c4.jpg')}}"alt="drama1" height=200px width=333px></a>
+			</div>
+			
+	  </div>
+  </div>
+
+<div class="w3-container w3-content w3-center w3-padding-64 w3-black" style="max-width:100%" id="try">
+    <h2 class="w3-wide">GET A MOVIE RECOMMENDED ACCORDING TO YOUR MOOD </h2>
+    <p style="padding-bottom:30px" class="w3-opacity"><i>Personalize your experience!</i></p>
+    <img src="{{url_for('static', filename='mov.png')}}"style="width:100%"> <br><br>
+	
+	<form action = "http://127.0.0.1:5000/uploader" method = "POST" 
+         enctype = "multipart/form-data">
+         <input type = "file" name = "file" />
+         <input type = "submit"/>
+      </form>
+</div>
+
+  <div class="w3-container w3-content " style="max-width:800px;padding-top:30px" id="contact" >
+    <h2 class="w3-wide w3-center">CONTACT</h2>
+    <p class="w3-opacity w3-center"><i>Have any questions? Drop a note!</i></p>
+    <div class="w3-row w3-padding-32">
+      <div class="w3-col m6 w3-large w3-margin-bottom">
+        <i class="fa fa-map-marker" style="width:30px"></i> Mumbai, India<br>
+        <i class="fa fa-phone" style="width:30px"></i> Phone: +91 8889997666<br>
+        <i class="fa fa-envelope" style="width:30px"> </i> Email: movierec@gmail.com<br>
+      </div>
+      <div class="w3-col m6">
+        <form action="/action_page.php" target="_blank">
+          <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+            </div>
+            <div class="w3-half">
+              <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+            </div>
+          </div>
+          <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+          <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  
+
+</div>
+
+
+<img src="{{url_for('static', filename='mum.jpg')}}"class="w3-image w3-greyscale-min" style="width:100%">
+
+<footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+  <i class="fa fa-facebook-official w3-hover-opacity"></i>
+  <i class="fa fa-instagram w3-hover-opacity"></i>
+  <i class="fa fa-snapchat w3-hover-opacity"></i>
+  <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+  <i class="fa fa-twitter w3-hover-opacity"></i>
+  <i class="fa fa-linkedin w3-hover-opacity"></i>
+  
+</footer>
+
+<script>
+
+var myIndex = 0;
+carousel();
+
+function carousel() {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";  
+  }
+  myIndex++;
+  if (myIndex > x.length) {myIndex = 1}    
+  x[myIndex-1].style.display = "block";  
+  setTimeout(carousel, 4000);    
+}
+
+function myFunction() {
+  var x = document.getElementById("navDemo");
+  if (x.className.indexOf("w3-show") == -1) {
+    x.className += " w3-show";
+  } else { 
+    x.className = x.className.replace(" w3-show", "");
+  }
+}
+
+var modal = document.getElementById('ticketModal');
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+</body>
+</html>
